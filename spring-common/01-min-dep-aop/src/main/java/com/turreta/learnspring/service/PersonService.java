@@ -1,27 +1,28 @@
 package com.turreta.learnspring.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
 
 @Service
 public class PersonService {
 
-//    @PostConstruct
-//    public void init() {
-//        createPerson();
-//    }
-    public void createPerson() {}
-
-    public void updatePerson() {
-        throw new RuntimeException("Error while updating Person");
+    public void createPersonForAOPBefore() {
+        System.out.println("--- createPersonForAOPBefore");
+    }
+    public void createPersonForAOPAfterReturning() {
+        System.out.println("--- createPersonForAOPAfterReturning");
+    }
+    public void createPersonForAOPAfterThrowing() {
+        throw new RuntimeException("Test Exception from createPersonForAOPAfterThrowing");
+    }
+    public void createPersonForAOPAfterFinallyA() {
+        System.out.println("--- createPersonForAOPAfterFinallyA");
+    }
+    public void createPersonForAOPAfterFinallyB() {
+        System.out.println("--- createPersonForAOPAfterFinallyB");
+        throw new RuntimeException("Test Exception from createPersonForAOPAfterFinallyB");
     }
 
-    public void deletePerson() {
-
+    public void createPersonForAOPAround() {
+        System.out.println("--- createPersonForAOPAround");
     }
-
-
 }
